@@ -19,7 +19,7 @@ const authRoutes = [
 export default function App() {
   return (
     <Routes>
-      <Route path="/" element={<LoginPage />}></Route>
+      <Route path="/" element={<DashboardPage />}></Route>
       <Route path="auth">
         {authRoutes.map(({ path, element }, key) => {
           return <Route key={key} path={path} element={element} />;
