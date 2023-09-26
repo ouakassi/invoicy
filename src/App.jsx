@@ -1,9 +1,15 @@
-import { Routes, Route, Outlet, Link } from "react-router-dom";
-import "./App.css";
-import DashboardPage from "./pages/dashboard/dashboardPage";
+import {
+  RouterProvider,
+  createBrowserRouter,
+  createRoutesFromElements,
+  Route,
+} from "react-router-dom";
+import DashboardLayout from "./pages/dashboard/DashboardLayout";
+import OverviewPage from "./pages/dashboard/OverviewPage";
 import LoginPage from "./pages/auth/LoginPage";
 import RegisterPage from "./pages/auth/RegisterPage";
 import ForgotPasswordPage from "./pages/auth/ForgotPasswordPage";
+import InvoicesPage from "./pages/dashboard/InvoicesPage";
 
 const authRoutes = [
   {
@@ -16,15 +22,26 @@ const authRoutes = [
   // { path: "reset-password", element: <ResetPassword /> },
 ];
 
-export default function App() {
-  return (
-    <Routes>
-      <Route path="/" element={<DashboardPage />}></Route>
-      <Route path="auth">
-        {authRoutes.map(({ path, element }, key) => {
-          return <Route key={key} path={path} element={element} />;
-        })}
-      </Route>
-    </Routes>
+function App() {
+  const router = createBrowserRouter(
+    createRoutesFromElements(
+      <>
+        <Route path="dashboard" element={<DashboardLayout />}>
+          <Route index path="overview" element={<OverviewPage />} />
+          <Route path="invoices" element={<InvoicesPage />} />
+          <Route path="users" element={<>users</>} />
+          <Route path="settings" element={<>settings</>} />
+        </Route>
+        <Route path="auth">
+          {authRoutes.map(({ path, element }, key) => {
+            return <Route key={key} path={path} element={element} />;
+          })}
+        </Route>
+      </>
+    )
   );
+
+  return <RouterProvider router={router} />;
 }
+
+export default App;

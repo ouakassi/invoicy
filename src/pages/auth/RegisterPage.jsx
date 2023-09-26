@@ -16,11 +16,11 @@ export default function RegisterPage() {
 
   return (
     <>
-      <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8  ">
+      <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-8 lg:px-8  ">
         <div className="sm:mx-auto sm:w-full sm:max-w-sm">
           <Logo />
-          <h2 className="mt-10 text-center text-2xl font-extrabold leading-9 tracking-tight text-gray-900">
-            Create new account
+          <h2 className="mt-10 text-center text-2xl font-medium  leading-9 tracking-tight text-gray-900">
+            Create a new account
           </h2>
         </div>
 
@@ -82,13 +82,13 @@ export default function RegisterPage() {
                 type="submit"
                 className="flex w-full justify-center items-center rounded-md bg-gradient-to-r from-sky-400 to-sky-600 p-2 text-m font-semibold leading-6 text-white shadow-md hover:from-sky-500 hover:to-sky-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-400"
               >
-                Register
                 <AiOutlineUserAdd className="icon" />
+                Register
               </button>
             </div>
           </form>
           <div className=" w-80 mx-auto border-t-2 border-gray-200 my-4"></div>
-          <p className=" font-sans mb-3 text-center text-m text-gray-800 font-semibold">
+          <p className=" font-sans mb-3 text-center text-sm text-gray-800 font-semibold">
             Already have an account ?{" "}
           </p>
           <Link
