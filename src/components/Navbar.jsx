@@ -23,6 +23,7 @@ import USER_IMG from "../assets/imgs/user.png";
 import { NavLink } from "react-router-dom";
 import NotificationMsg from "./notifications/NotificationMsg";
 import { Button } from "../components/Button";
+import { useState } from "react";
 
 const userDropdownItems = [
   { icon: <RiProfileLine />, text: "Profile" },
@@ -30,31 +31,40 @@ const userDropdownItems = [
 ];
 
 export default function Navbar() {
+  const [dark, setDark] = useState(false);
   const notifications = 1;
   return (
-    <header className="w-full h-[3.5rem] flex items-center justify-between fixed  pr-8 pl-2 py-2 bg-white shadow-md">
+    <header
+      className={`fixed flex h-[3.5rem] w-full items-center justify-between bg-white  py-2 pl-2 pr-8 shadow-md 
+    ${dark ? "dark" : null}`}
+    >
       <NavLink to="overview">
         <Logo logoSize="w-[3rem]" text={true} />
       </NavLink>
-      <nav className="flex gap-8 ">
+      <nav className="flex gap-8 dark:bg-blue-950">
         {/* <InputContainer icon={<RiSearch2Line />} /> */}
 
         <DropdownMenu>
-          <DropdownMenuTrigger className="text-xl p-2 hover:bg-sky-100 rounded-sm outline-none">
+          <DropdownMenuTrigger className="rounded-sm p-2 text-xl outline-none hover:bg-sky-100">
             <RiNotification3Line />
+            <span className="absolute top-1 rounded-full bg-sky-800 px-[8px] py-[3px] text-xs font-bold text-white">
+              5
+            </span>
           </DropdownMenuTrigger>
           {notifications !== 0 ? (
             <DropdownMenuContent
-              className="px-2 py-2 pb-8 min-w-[22rem] "
+              className="min-w-[22rem] px-2 py-2 pb-8 "
               sideOffset="2"
             >
-              <DropdownMenuLabel className="text-lg flex justify-between items-center  rounded-xl text-black ">
-                <span className="flex items-center gap-2  text-sky-500 ">
+              <DropdownMenuLabel className="flex items-center justify-between rounded-xl  text-lg  ">
+                <div></div>
+                <span className="ml-4 flex items-center gap-2  ">
                   <RiNotification2Fill />
                   Notifications
-                </span>{" "}
+                </span>
+
                 <Button
-                  className="text-red-600 text-xl hover:bg-red-100 hover:text-red-700"
+                  className="text-xl text-red-600 hover:bg-red-100 hover:text-red-700"
                   variant="link"
                 >
                   <RiDeleteBin5Line />
@@ -69,13 +79,13 @@ export default function Navbar() {
             </DropdownMenuContent>
           ) : (
             <DropdownMenuContent
-              className="px-6 py-10 flex flex-col gap-4 text-sky-800 items-center justify-center  max-w-xs font-medium"
+              className="flex max-w-xs flex-col items-center justify-center gap-4 px-6 py-10  font-medium text-sky-800"
               sideOffset="2"
             >
               <p className="flex items-center gap-2">
                 <RiCheckDoubleFill /> All clear for now!
               </p>
-              <p className="font-light text-center text-black">
+              <p className="text-center font-light text-black">
                 New notifications will appear here when there's activity in your
                 workspace.
               </p>
@@ -84,20 +94,21 @@ export default function Navbar() {
         </DropdownMenu>
 
         <DropdownMenu>
-          <DropdownMenuTrigger className="focus:ring-2 outline-none ">
+          <DropdownMenuTrigger className="outline-none focus:ring-2 ">
             <Avatar>
-              <AvatarImage size="1" src={USER_IMG} />
+              <AvatarImage className="p-1 hover:bg-sky-200" src={USER_IMG} />
               <AvatarFallback>USER</AvatarFallback>
             </Avatar>
           </DropdownMenuTrigger>
           <DropdownMenuContent sideOffset="2" className="mx-4">
             <DropdownMenuLabel>My Account</DropdownMenuLabel>
             <DropdownMenuSeparator />
+            <button onClick={() => setDark(!dark)}>DARK</button>
             {userDropdownItems.map(({ icon, text }, i) => {
               return (
                 <DropdownMenuItem
                   key={i}
-                  className="gap-2 px-4 cursor-pointer hover:bg-red-400 last:text-red-500 last:hover:text-red-600"
+                  className="cursor-pointer gap-2 px-4 last:text-red-500 hover:bg-red-400 last:hover:text-red-600"
                 >
                   <span className="text-lg">{icon}</span> <span>{text}</span>
                 </DropdownMenuItem>

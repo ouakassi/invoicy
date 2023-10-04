@@ -37,8 +37,8 @@ function App() {
             return <Route key={key} path={path} element={element} />;
           })}
         </Route>
-      </>
-    )
+      </>,
+    ),
   );
 
   return <RouterProvider router={router} />;

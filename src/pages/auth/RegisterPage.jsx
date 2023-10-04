@@ -80,15 +80,15 @@ export default function RegisterPage() {
             <div>
               <button
                 type="submit"
-                className="flex w-full justify-center items-center rounded-md bg-gradient-to-r from-sky-400 to-sky-600 p-2 text-m font-semibold leading-6 text-white shadow-md hover:from-sky-500 hover:to-sky-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-400"
+                className="text-m flex w-full items-center justify-center rounded-md bg-gradient-to-r from-sky-400 to-sky-600 p-2 font-semibold leading-6 text-white shadow-md hover:from-sky-500 hover:to-sky-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-400"
               >
                 <AiOutlineUserAdd className="icon" />
                 Register
               </button>
             </div>
           </form>
-          <div className=" w-80 mx-auto border-t-2 border-gray-200 my-4"></div>
-          <p className=" font-sans mb-3 text-center text-sm text-gray-800 font-semibold">
+          <div className=" mx-auto my-4 w-80 border-t-2 border-gray-200"></div>
+          <p className=" mb-3 text-center font-sans text-sm font-semibold text-gray-800">
             Already have an account ?{" "}
           </p>
           <Link

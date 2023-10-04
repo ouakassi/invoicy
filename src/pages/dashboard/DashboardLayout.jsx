@@ -20,9 +20,11 @@ export default function DashboardLayout() {
     <div className="dashboard">
       <Sidebar />
       <Navbar />
-      <div className="content p-4 pl-20 pt-16 bg-gray-200 min-h-screen">
-        <Outlet />
-      </div>
+      <main className=" min-h-screen bg-gray-200 p-4 pl-20 pt-16">
+        <div className="mx-auto max-w-screen-xl">
+          <Outlet />
+        </div>
+      </main>
     </div>
   );
 }

@@ -88,6 +88,27 @@
   margin: 0 5px;
 }
 
+/* width */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #e0f2fe;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #0ea5e9;
+  border-radius: 20px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #0369a1;
+}
+
 /* .bg {
   position: absolute;
   bottom: 0;

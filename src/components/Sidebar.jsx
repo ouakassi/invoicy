@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { motion } from "framer-motion";
 import { NavLink } from "react-router-dom";
 
 import {
@@ -17,6 +17,7 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "./Tooltip";
+import { useState } from "react";
 
 const sidebarHeaderItems = [
   { link: "overview", icon: <RiHome5Line />, text: "overview" },
@@ -29,38 +30,49 @@ const sidebarFooterItems = [
 ];
 
 const ButtonItem = ({ link, icon, text }) => {
+  const [isHoverd, setIsHoverd] = useState(false);
   return (
-    <TooltipProvider delayDuration="200">
-      <Tooltip>
-        <TooltipTrigger>
-          <NavLink
-            to={link}
-            className={({ isActive }) =>
-              isActive ? "flex items-center text-sky-500" : undefined
-            }
-          >
-            <Button variant="ghost" className=" uppercase hover:bg-sky-100">
-              <span className="text-[1.5rem]">{icon}</span>
-            </Button>
-          </NavLink>
-        </TooltipTrigger>
+    <motion.div
+      onMouseEnter={() => setIsHoverd(true)}
+      onMouseLeave={() => setIsHoverd(false)}
+    >
+      <TooltipProvider delayDuration="200">
+        <Tooltip>
+          <TooltipTrigger>
+            <NavLink
+              to={link}
+              className={({ isActive }) =>
+                ` flex items-center rounded-sm px-4 py-3 hover:bg-sky-100 ${
+                  isActive ? "text-sky-500 " : null
+                }  `
+              }
+            >
+              <motion.span
+                animate={isHoverd ? { scale: 0.8 } : { scale: 1 }}
+                className="text-[1.5rem]"
+              >
+                {icon}
+              </motion.span>
+            </NavLink>
+          </TooltipTrigger>
 
-        <TooltipContent
-          className="p-2 uppercase bg-sky-700 font-semibold text-xs"
-          side="right"
-          sideOffset="1"
-        >
-          <p>{text}</p>
-        </TooltipContent>
-      </Tooltip>
-    </TooltipProvider>
+          <TooltipContent
+            className="bg-sky-700 p-2 text-xs font-semibold uppercase"
+            side="right"
+            sideOffset="1"
+          >
+            <p>{text}</p>
+          </TooltipContent>
+        </Tooltip>
+      </TooltipProvider>
+    </motion.div>
   );
 };
 
 export default function Sidebar() {
   return (
-    <aside className=" h-[calc(100%-3.5rem)] z-10 fixed bottom-0 flex flex-col py-4 px-2 pt-20 justify-between bg-white shadow-xl text-gray-600 ">
-      <header className="flex flex-col gap-4 items-center">
+    <aside className=" fixed bottom-0 z-10 flex h-[calc(100%-3.5rem)] flex-col justify-between bg-white px-2 py-4 pt-20 text-gray-600 shadow-xl ">
+      <header className="flex flex-col items-center gap-4">
         {sidebarHeaderItems.map(({ link, icon, text }, i) => {
           return <ButtonItem key={i} link={link} icon={icon} text={text} />;
         })}

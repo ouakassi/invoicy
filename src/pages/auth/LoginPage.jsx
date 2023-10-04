@@ -68,26 +68,26 @@ export default function LoginPage() {
             <div>
               <button
                 type="submit"
-                className="flex w-full justify-center items-center rounded-md bg-gradient-to-r from-sky-400 to-sky-600 p-2 text-m font-semibold leading-6 text-white shadow-md hover:from-sky-500 hover:to-sky-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-400"
+                className="text-m flex w-full items-center justify-center rounded-md bg-gradient-to-r from-sky-400 to-sky-600 p-2 font-semibold leading-6 text-white shadow-md hover:from-sky-500 hover:to-sky-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-400"
               >
                 <BiLogInCircle className="icon" />
                 Login
               </button>
             </div>
-            <div className=" flex justify-center gap-5  w-full">
-              <button className="bg-slate-800 text-white text-2xl shadow-md rounded-full p-2 focus:ring focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-400 hover:shadow-xl ">
+            <div className=" flex w-full justify-center  gap-5">
+              <button className="rounded-full bg-slate-800 p-2 text-2xl text-white shadow-md hover:shadow-xl focus:ring focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-400 ">
                 <BsGithub />
               </button>
-              <button className="bg-red-700 text-white text-2xl shadow-md rounded-full p-2 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-400 hover:shadow-lg">
+              <button className="rounded-full bg-red-700 p-2 text-2xl text-white shadow-md hover:shadow-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-400">
                 <BsGoogle />
               </button>
-              <button className="bg-blue-800 text-white text-2xl shadow-md rounded-full p-2 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-400  hover:shadow-lg">
+              <button className="rounded-full bg-blue-800 p-2 text-2xl text-white shadow-md hover:shadow-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2  focus-visible:outline-sky-400">
                 <BsFacebook />
               </button>
             </div>
           </form>
-          <div className=" w-80 mx-auto border-t-2 border-gray-200 my-4"></div>
-          <p className=" font-sans mb-3 text-center text-sm text-gray-800 font-semibold">
+          <div className=" mx-auto my-4 w-80 border-t-2 border-gray-200"></div>
+          <p className=" mb-3 text-center font-sans text-sm font-semibold text-gray-800">
             Not registred yet?{" "}
           </p>
           <Link
