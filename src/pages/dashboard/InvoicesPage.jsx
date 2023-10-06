@@ -462,6 +462,7 @@ const statusColor = [
 
     color: "text-green-600",
     bgColor: "bg-green-100",
+    borderColor: "border-green-300",
   },
   {
     statusTitle: "unpaid",
@@ -469,12 +470,14 @@ const statusColor = [
 
     color: "text-red-500",
     bgColor: "bg-red-100",
+    borderColor: "border-red-300",
   },
   {
     statusTitle: "pending",
     icon: <BsClockHistory />,
     color: "text-yellow-500",
     bgColor: "bg-yellow-100",
+    borderColor: "border-yellow-300",
   },
   {
     statusTitle: "archived",
@@ -482,6 +485,7 @@ const statusColor = [
 
     color: "text-gray-500",
     bgColor: "bg-gray-100",
+    borderColor: "border-gray-300",
   },
 ];
 const ItemsPerPage = 10;
@@ -643,14 +647,14 @@ export default function InvoicesPage() {
                 <td className="h-px w-px whitespace-nowrap">
                   <div className=" flex px-6 py-1.5 ">
                     {statusColor.map(
-                      ({ statusTitle, icon, color, bgColor }) => {
+                      ({ statusTitle, icon, color, bgColor, borderColor }) => {
                         if (
                           status.toLowerCase() === statusTitle.toLowerCase()
                         ) {
                           return (
                             <span
                               key={statusTitle}
-                              className={`rounded-md ${bgColor} flex grow items-center  gap-2 p-2 text-center font-sans  text-sm font-semibold capitalize ${color} shadow-sm`}
+                              className={`rounded-xl border-2 ${borderColor} ${bgColor} flex grow items-center  gap-2 p-1 text-center font-sans  text-sm font-semibold capitalize ${color} shadow-sm`}
                             >
                               {icon}
                               {status}
@@ -693,7 +697,7 @@ export default function InvoicesPage() {
                               <RiDeleteBin3Line />
                             </TooltipTrigger>
                           </AlertDialogTrigger>
-                          <TooltipContent className="bg-red-600 text-red-100">
+                          <TooltipContent className="bg-red-600 text-white">
                             <p>Delete</p>
                           </TooltipContent>
                         </Tooltip>
