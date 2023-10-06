@@ -15,11 +15,18 @@ import {
 } from "react-icons/ri";
 import { LiaMoneyBillWaveSolid } from "react-icons/lia";
 import { TbDots, TbFileInvoice, TbLayoutAlignMiddle } from "react-icons/tb";
+
+import { FaEye } from "react-icons/fa";
+
 import {
+  BsAlignMiddle,
   BsCheck2Circle,
   BsClockHistory,
+  BsDash,
   BsExclamationCircle,
   BsFileEarmarkCheckFill,
+  BsFillCaretLeftFill,
+  BsFillCaretRightFill,
   BsFillExclamationSquareFill,
   BsQuestionCircle,
   BsShieldLock,
@@ -27,6 +34,12 @@ import {
 import { MdOutlineDateRange } from "react-icons/md";
 import { PiTableLight } from "react-icons/pi";
 import { SiHashnode } from "react-icons/si";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "../../components/Tooltip";
 
 import {
   Tabs,
@@ -175,6 +188,271 @@ const dataArray = [
     total: 1600,
     status: "Archived",
   },
+
+  {
+    id: 11,
+    title: "Laptop",
+    date: "2023-10-01",
+    client: "John's Electronics",
+    total: 1000,
+    status: "Pending",
+  },
+  {
+    id: 12,
+    title: "Website Development",
+    date: "2023-10-02",
+    client: "Tech Solutions Inc.",
+    total: 1500,
+    status: "Paid",
+  },
+  {
+    id: 13,
+    title: "Office Chairs",
+    date: "2023-10-03",
+    client: "Furniture Emporium",
+    total: 1200,
+    status: "Unpaid",
+  },
+  {
+    id: 14,
+    title: "Graphic Design Service",
+    date: "2023-10-04",
+    client: "Design Innovations",
+    total: 2000,
+    status: "Paid",
+  },
+  {
+    id: 15,
+    title: "Printer",
+    date: "2023-10-05",
+    client: "Print Master Co.",
+    total: 800,
+    status: "Pending",
+  },
+  {
+    id: 16,
+    title: "Mobile App Development",
+    date: "2023-10-06",
+    client: "App Creators Ltd.",
+    total: 1700,
+    status: "Paid",
+  },
+  {
+    id: 17,
+    title: "Office Desks",
+    date: "2023-10-07",
+    client: "Desk World",
+    total: 1300,
+    status: "Unpaid",
+  },
+  {
+    id: 18,
+    title: "IT Consultation",
+    date: "2023-10-08",
+    client: "Tech Experts LLC",
+    total: 1800,
+    status: "Paid",
+  },
+  {
+    id: 19,
+    title: "Coffee Machine",
+    date: "2023-10-09",
+    client: "Coffee Lovers Co.",
+    total: 900,
+    status: "Unpaid",
+  },
+  {
+    id: 21,
+    title: "SEO Services",
+    date: "2023-10-10",
+    client: "Search Boost Agency",
+    total: 1600,
+    status: "Archived",
+  },
+  {
+    id: 22,
+    title: "SEO Services",
+    date: "2023-10-10",
+    client: "Search Boost Agency",
+    total: 1600,
+    status: "Archived",
+  },
+  {
+    id: 23,
+    title: "SEO Services",
+    date: "2023-10-10",
+    client: "Search Boost Agency",
+    total: 1600,
+    status: "Archived",
+  },
+  {
+    id: 24,
+    title: "SEO Services",
+    date: "2023-10-10",
+    client: "Search Boost Agency",
+    total: 1600,
+    status: "Archived",
+  },
+  {
+    id: 25,
+    title: "SEO Services",
+    date: "2023-10-10",
+    client: "Search Boost Agency",
+    total: 1600,
+    status: "Archived",
+  },
+  {
+    id: 26,
+    title: "SEO Services",
+    date: "2023-10-10",
+    client: "Search Boost Agency",
+    total: 1600,
+    status: "Archived",
+  },
+  {
+    id: 27,
+    title: "SEO Services",
+    date: "2023-10-10",
+    client: "Search Boost Agency",
+    total: 1600,
+    status: "Archived",
+  },
+  {
+    id: 28,
+    title: "SEO Services",
+    date: "2023-10-10",
+    client: "Search Boost Agency",
+    total: 1600,
+    status: "Archived",
+  },
+  {
+    id: 29,
+    title: "SEO Services",
+    date: "2023-10-10",
+    client: "Search Boost Agency",
+    total: 1600,
+    status: "Archived",
+  },
+  {
+    id: 30,
+    title: "SEO Services",
+    date: "2023-10-10",
+    client: "Search Boost Agency",
+    total: 1600,
+    status: "Archived",
+  },
+  {
+    id: 31,
+    title: "SEO Services",
+    date: "2023-10-10",
+    client: "Search Boost Agency",
+    total: 1600,
+    status: "Archived",
+  },
+  {
+    id: 32,
+    title: "SEO Services",
+    date: "2023-10-10",
+    client: "Search Boost Agency",
+    total: 1600,
+    status: "Archived",
+  },
+  {
+    id: 33,
+    title: "SEO Services",
+    date: "2023-10-10",
+    client: "Search Boost Agency",
+    total: 1600,
+    status: "Archived",
+  },
+  {
+    id: 34,
+    title: "SEO Services",
+    date: "2023-10-10",
+    client: "Search Boost Agency",
+    total: 1600,
+    status: "Archived",
+  },
+  {
+    id: 35,
+    title: "SEO Services",
+    date: "2023-10-10",
+    client: "Search Boost Agency",
+    total: 1600,
+    status: "Archived",
+  },
+  {
+    id: 36,
+    title: "SEO Services",
+    date: "2023-10-10",
+    client: "Search Boost Agency",
+    total: 1600,
+    status: "Archived",
+  },
+  {
+    id: 37,
+    title: "SEO Services",
+    date: "2023-10-10",
+    client: "Search Boost Agency",
+    total: 1600,
+    status: "Archived",
+  },
+  {
+    id: 38,
+    title: "SEO Services",
+    date: "2023-10-10",
+    client: "Search Boost Agency",
+    total: 1600,
+    status: "Archived",
+  },
+  {
+    id: 39,
+    title: "SEO Services",
+    date: "2023-10-10",
+    client: "Search Boost Agency",
+    total: 1600,
+    status: "Archived",
+  },
+  {
+    id: 40,
+    title: "SEO Services",
+    date: "2023-10-10",
+    client: "Search Boost Agency",
+    total: 1600,
+    status: "Archived",
+  },
+  {
+    id: 41,
+    title: "SEO Services",
+    date: "2023-10-10",
+    client: "Search Boost Agency",
+    total: 1600,
+    status: "Archived",
+  },
+  {
+    id: 42,
+    title: "SEO Services",
+    date: "2023-10-10",
+    client: "Search Boost Agency",
+    total: 1600,
+    status: "Archived",
+  },
+  {
+    id: 43,
+    title: "SEO Services",
+    date: "2023-10-10",
+    client: "Search Boost Agency",
+    total: 1600,
+    status: "Archived",
+  },
+  {
+    id: 44,
+    title: "SEO Services",
+    date: "2023-10-10",
+    client: "Search Boost Agency",
+    total: 1600,
+    status: "Archived",
+  },
 ];
 
 const statusColor = [
@@ -206,32 +484,100 @@ const statusColor = [
     bgColor: "bg-gray-100",
   },
 ];
+const ItemsPerPage = 10;
 
 export default function InvoicesPage() {
-  const [tableFilter, setTableFilter] = useState("");
+  // states
+  const [tableFilter, setTableFilter] = useState("all");
+  const [isEditDialogOpen, setIsEditDialogOpen] = useState(false);
+
+  const [currentPage, setCurrentPage] = useState(1);
+
+  //handlers
+  const handlePageChange = (newPage) => {
+    setCurrentPage(newPage);
+  };
+
+  function handleTabFilter(value) {
+    setTableFilter(value);
+    setCurrentPage(1);
+  }
+
+  const filteredAndPaginatedData = dataArray.filter(
+    ({ status }) =>
+      !tableFilter ||
+      tableFilter === "all" ||
+      status.toLowerCase() === tableFilter.toLowerCase(),
+  );
+
+  const totalPages = Math.ceil(filteredAndPaginatedData.length / ItemsPerPage);
+  const startIndex = (currentPage - 1) * ItemsPerPage;
+  const endIndex = startIndex + ItemsPerPage;
+  const paginatedData = filteredAndPaginatedData.slice(startIndex, endIndex);
 
   return (
     <>
       <PageHeader icon={<RiFileAddLine />} text={"new invoice"} />
       <div className="mb-4"></div>
-      <Tabs defaultValue="account">
-        <TabsList className=" bg-gradient-to-t from-sky-500 to-sky-700  text-gray-100 shadow-lg [&>button:hover]:bg-sky-800 [&>button:hover]:text-white [&>button]:px-4">
-          {tabsHeaderData.map(({ value, title, icon }) => {
-            return (
-              <TabsTrigger
-                onClick={() => setTableFilter(value)}
-                key={title}
-                value={value}
-              >
-                <span className="mr-1 text-sm">{icon}</span>
-                <span className="capitalize">{title}</span>
-              </TabsTrigger>
-            );
-          })}
-        </TabsList>
+      <div className="flex items-center justify-between">
+        <Tabs defaultValue="account">
+          <TabsList className=" bg-gradient-to-t from-sky-500 to-sky-700  text-gray-100 shadow-lg [&>button:hover]:bg-sky-800 [&>button:hover]:text-white [&>button]:px-4">
+            {tabsHeaderData.map(({ value, title, icon }) => {
+              return (
+                <TabsTrigger
+                  onClick={() => handleTabFilter(value)}
+                  key={title}
+                  value={value}
+                >
+                  <span className="mr-1 text-sm">{icon}</span>
+                  <span className="capitalize">{title}</span>
+                </TabsTrigger>
+              );
+            })}
+          </TabsList>
+        </Tabs>
 
-        {/* <TabsContent value="">Make changes to your account here.</TabsContent> */}
-      </Tabs>
+        <div className=" max-w-7xl items-center ">
+          <div className="max-auto w-full justify-center text-center ">
+            <span className="isolate mx-auto inline-flex justify-center rounded-xl shadow-sm">
+              <button
+                onClick={() => handlePageChange(currentPage - 1)}
+                disabled={currentPage === 1}
+                type="button"
+                className={`relative inline-flex items-center rounded-l-xl border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 focus:z-10 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 ${
+                  currentPage === 1
+                    ? "cursor-not-allowed text-neutral-400"
+                    : null
+                }`}
+              >
+                <BsFillCaretLeftFill />
+              </button>
+              <button
+                type="button"
+                className="relative -ml-px inline-flex items-center border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 focus:z-10 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
+              >
+                <span className="flex items-center space-x-2">
+                  <span>{currentPage}</span>
+                  <BsDash />
+                  <span>{totalPages}</span>
+                </span>
+              </button>
+              <button
+                onClick={() => handlePageChange(currentPage + 1)}
+                disabled={endIndex >= filteredAndPaginatedData.length}
+                type="button"
+                className={`relative -ml-px inline-flex items-center rounded-r-xl border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 focus:z-10 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 ${
+                  endIndex >= filteredAndPaginatedData.length
+                    ? "cursor-not-allowed text-neutral-400"
+                    : null
+                }`}
+              >
+                <BsFillCaretRightFill />
+              </button>
+            </span>
+          </div>
+        </div>
+      </div>
 
       <table className="mt-4 min-w-full divide-y divide-gray-200  dark:divide-gray-700">
         <thead className="bg-sky-900 dark:bg-slate-800">
@@ -250,170 +596,139 @@ export default function InvoicesPage() {
           </tr>
         </thead>
 
-        {dataArray
-          .filter(
-            ({ status }) =>
-              !tableFilter ||
-              tableFilter === "all" ||
-              status.toLowerCase() === tableFilter,
-          )
-          .map(({ id, title, date, client, total, status }, i) => {
-            const myDate = new Date(date);
-            return (
-              <tbody className="divide-y divide-gray-200 rounded-sm dark:divide-gray-700 ">
-                <motion.tr
-                  initial={{ y: -10, opacity: 0 }}
-                  animate={{ y: 0, opacity: 1 }}
-                  transition={{ delay: i * 0.1 }}
-                  key={id}
-                  className=" rounded-md bg-white font-josefin text-base "
-                >
-                  <td className="h-px w-px whitespace-nowrap py-4">
-                    <div className=" flex items-center justify-center gap-1 rounded-sm  px-1 py-1 pl-6 pr-6 text-sky-800 lg:pl-3 xl:px-4">
-                      {/* <TbLayoutAlignMiddle /> */}
-                      <SiHashnode />
-                      <span>INV-{id.toString().padStart(5, "0")}</span>
+        {paginatedData.map(({ id, title, date, client, total, status }, i) => {
+          const myDate = new Date(date);
+          return (
+            <tbody className="divide-y divide-gray-200 rounded-sm dark:divide-gray-700 ">
+              <motion.tr
+                initial={{ opacity: [0, 0.2, 0.5], y: -50 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, delay: i * 0.1 }}
+                key={id}
+                className=" rounded-md bg-white font-josefin text-base transition-colors  hover:bg-gray-100 "
+              >
+                <td className="group h-px w-px cursor-pointer whitespace-nowrap py-4 ">
+                  <div className="flex items-center justify-center gap-1 rounded-sm px-1  py-1 pl-6 pr-6 text-sky-800 group-hover:underline lg:pl-3 xl:px-4">
+                    {/* <TbLayoutAlignMiddle /> */}
+                    <SiHashnode />
+                    <span>INV-{id.toString().padStart(5, "0")}</span>
+                  </div>
+                </td>
+                <td className="h-px w-72 whitespace-nowrap ">
+                  <div className="flex items-center justify-start gap-1 px-6 py-3">
+                    <TbFileInvoice />
+                    <span>{title}</span>
+                  </div>
+                </td>
+                <td className="h-px w-px whitespace-nowrap">
+                  <div className="flex items-center justify-center gap-2 px-6 py-3  text-gray-600">
+                    <MdOutlineDateRange />
+                    <span>{myDate.toLocaleDateString()}</span>
+                  </div>
+                </td>
+                <td className="h-px w-px whitespace-nowrap">
+                  <div className="px-6 py-3">
+                    <div className="flex items-center gap-2  text-slate-500">
+                      <RiFileUserLine />
+                      <span>{client}</span>
                     </div>
-                  </td>
-                  <td className="h-px w-72 whitespace-nowrap ">
-                    <div className="flex items-center justify-start gap-1 px-6 py-3">
-                      {/* <TbFileInvoice /> */}
-                      <span>{title}</span>
-                    </div>
-                  </td>
-                  <td className="h-px w-px whitespace-nowrap">
-                    <div className="flex items-center justify-center gap-2 px-6 py-3  text-gray-600">
-                      <MdOutlineDateRange />
-                      <span>{myDate.toLocaleDateString()}</span>
-                    </div>
-                  </td>
-                  <td className="h-px w-px whitespace-nowrap">
-                    <div className="px-6 py-3">
-                      <div className="flex items-center gap-2  text-slate-500">
-                        <RiFileUserLine />
-                        <span>{client}</span>
-                      </div>
-                    </div>
-                  </td>
-                  <td className="h-px w-px whitespace-nowrap">
-                    <div className="flex justify-center gap-2 px-6 py-3  font-bold">
-                      {/* <LiaMoneyBillWaveSolid /> */}
-                      <span className="text-sm text-green-900">{total} $</span>
-                    </div>
-                  </td>
-                  <td className="h-px w-px whitespace-nowrap">
-                    <div className=" flex px-6 py-1.5 ">
-                      {statusColor.map(
-                        ({ statusTitle, icon, color, bgColor }) => {
-                          if (
-                            status.toLowerCase() === statusTitle.toLowerCase()
-                          ) {
-                            return (
-                              <span
-                                key={statusTitle} // Add a unique key for each element when mapping over an array
-                                className={`rounded-md ${bgColor} flex grow items-center  gap-2 p-2 text-center font-sans  text-sm font-semibold capitalize ${color} shadow-sm`}
-                              >
-                                {icon}
-                                {status}
-                              </span>
-                            );
-                          }
-                          return null; // If the condition is not met, return null or an empty fragment
-                        },
-                      )}
-                    </div>
-                  </td>
-                  <td className="h-px w-px whitespace-nowrap text-center">
-                    <div className="px-6 py-1.5">
-                      <DropdownMenu>
-                        <AlertDialog>
-                          <DropdownMenuTrigger className="rounded-md p-2 hover:bg-sky-100">
-                            <TbDots />
-                          </DropdownMenuTrigger>
-                          <DropdownMenuContent>
-                            <DropdownMenuItem className="gap-2 font-semibold">
-                              <PiTableLight />
-                              <span>Preview</span>
-                            </DropdownMenuItem>
-                            <DropdownMenuItem className="gap-2 font-semibold text-cyan-700">
-                              <RiEditCircleLine />
-                              <span>Edit</span>
-                            </DropdownMenuItem>
-                            <AlertDialogTrigger asChild>
-                              <DropdownMenuItem className="gap-2 font-semibold text-red-600 hover:bg-red-300">
-                                <RiDeleteBin3Line />
-                                <span>Delete</span>
-                              </DropdownMenuItem>
-                            </AlertDialogTrigger>
-                          </DropdownMenuContent>
-                          <AlertDialogContent>
-                            <AlertDialogHeader>
-                              <AlertDialogTitle className="flex items-center gap-2 ">
-                                <BsFillExclamationSquareFill className="text-2xl text-red-800" />
-                                Are you completely certain about deleting
-                                invoice?
-                              </AlertDialogTitle>
-                              <AlertDialogDescription>
-                                Please note that this action is irreversible. It
-                                will permanently remove the invoice row from
-                                your records.
-                              </AlertDialogDescription>
-                            </AlertDialogHeader>
-                            <AlertDialogFooter>
-                              <AlertDialogCancel>Cancel</AlertDialogCancel>
-                              <AlertDialogAction className="bg-red-700 hover:bg-red-600">
-                                Delete
-                              </AlertDialogAction>
-                            </AlertDialogFooter>
-                          </AlertDialogContent>
-                        </AlertDialog>
-                      </DropdownMenu>
-                    </div>
-                  </td>
-                </motion.tr>
-              </tbody>
-            );
-          })}
-      </table>
+                  </div>
+                </td>
+                <td className="h-px w-px whitespace-nowrap">
+                  <div className="flex justify-center gap-2 px-6 py-3  font-bold">
+                    {/* <LiaMoneyBillWaveSolid /> */}
+                    <span className="text-sm text-green-900">{total} $</span>
+                  </div>
+                </td>
+                <td className="h-px w-px whitespace-nowrap">
+                  <div className=" flex px-6 py-1.5 ">
+                    {statusColor.map(
+                      ({ statusTitle, icon, color, bgColor }) => {
+                        if (
+                          status.toLowerCase() === statusTitle.toLowerCase()
+                        ) {
+                          return (
+                            <span
+                              key={statusTitle}
+                              className={`rounded-md ${bgColor} flex grow items-center  gap-2 p-2 text-center font-sans  text-sm font-semibold capitalize ${color} shadow-sm`}
+                            >
+                              {icon}
+                              {status}
+                            </span>
+                          );
+                        }
+                        return null;
+                      },
+                    )}
+                  </div>
+                </td>
+                <td className="h-px w-px whitespace-nowrap text-center">
+                  <div className="flex px-2 py-1.5">
+                    <TooltipProvider delayDuration="200">
+                      <Tooltip>
+                        <TooltipTrigger className="rounded-sm p-3 transition-colors  hover:bg-slate-200 ">
+                          <FaEye />
+                        </TooltipTrigger>
+                        <TooltipContent>
+                          <p>Preview</p>
+                        </TooltipContent>
+                      </Tooltip>
+                    </TooltipProvider>
 
-      {/* <div className="flex mt-4 py-2 px-4 uppercase font-roboto rounded-md font-bold  bg-sky-900 text-white   ">
-          <span></span>
-          <span>Invoice ID</span>
-          <span>Title</span>
-          <span>Date</span>
-          <span>Client</span>
-          <span>Total</span>
-          <span>Status</span>
-          <div className="flex gap-4 "></div>
-        </div>
-        <div className="flex items-center capitalize  justify-between  py-2 px-4  rounded-md shadow-md bg-white border-solid border-2 hover:border-sky-400">
-          <span>
-            <RiFileTextLine />
-          </span>
-          <span>#INV548</span>
-          <span>new materials</span>
-          <span>03/04/2023</span>
-          <span>Dr Stone</span>
-          <span>5005$</span>
-          <span>unpaid</span>
-          <div className="flex gap-2">
-            <RiEditBoxLine />
-            <RiDeleteBin3Line />
-          </div>
-        </div> */}
-      {tabsHeaderData.map(({ title }) => {
-        return;
-        <>
-          <div>
-            <span>id</span>
-            <span>{title}</span>
-          </div>
-          <div>
-            <span>name</span>
-            {title + 1}
-          </div>
-        </>;
-      })}
+                    <TooltipProvider delayDuration="200">
+                      <Tooltip>
+                        <TooltipTrigger className="rounded-sm p-3 transition-colors hover:bg-slate-200 ">
+                          <RiEditCircleLine />
+                        </TooltipTrigger>
+                        <TooltipContent>
+                          <p>Edit</p>
+                        </TooltipContent>
+                      </Tooltip>
+                    </TooltipProvider>
+                    <AlertDialog>
+                      <TooltipProvider delayDuration="200">
+                        <Tooltip>
+                          <AlertDialogTrigger>
+                            <TooltipTrigger className="gap-2 rounded-sm p-3 font-semibold text-red-600 transition-colors hover:bg-red-100  ">
+                              <RiDeleteBin3Line />
+                            </TooltipTrigger>
+                          </AlertDialogTrigger>
+                          <TooltipContent className="bg-red-600 text-red-100">
+                            <p>Delete</p>
+                          </TooltipContent>
+                        </Tooltip>
+                      </TooltipProvider>
+                      <AlertDialogContent>
+                        <AlertDialogHeader>
+                          <AlertDialogTitle className="flex items-center gap-2 ">
+                            <BsExclamationCircle className="text-2xl text-red-800" />
+                            Are you completely certain about deleting invoice?
+                          </AlertDialogTitle>
+                          <AlertDialogDescription>
+                            Please note that this action is irreversible. It
+                            will permanently remove the invoice row from your
+                            records.
+                          </AlertDialogDescription>
+                        </AlertDialogHeader>
+                        <AlertDialogFooter>
+                          <AlertDialogCancel
+                            onClick={() => setIsEditDialogOpen(false)}
+                          >
+                            Cancel
+                          </AlertDialogCancel>
+                          <AlertDialogAction className="bg-red-700 hover:bg-red-600">
+                            Delete
+                          </AlertDialogAction>
+                        </AlertDialogFooter>
+                      </AlertDialogContent>
+                    </AlertDialog>
+                  </div>
+                </td>
+              </motion.tr>
+            </tbody>
+          );
+        })}
+      </table>
     </>
   );
 }
