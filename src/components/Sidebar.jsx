@@ -22,7 +22,7 @@ import { useState } from "react";
 const sidebarHeaderItems = [
   { link: "overview", icon: <RiHome5Line />, text: "overview" },
   { link: "invoices", icon: <RiFileCopy2Line />, text: "invoices" },
-  { link: "users", icon: <RiTeamLine />, text: "users" },
+  { link: "clients", icon: <RiTeamLine />, text: "clients" },
 ];
 
 const sidebarFooterItems = [

@@ -67,7 +67,8 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger,
 } from "../../components/AlertDialog";
-import { useEffect } from "react";
+
+import invoicesData from "../../data/invoicesData.json";
 
 const tabsHeaderData = [
   {
@@ -105,354 +106,6 @@ const tableHeaderTitles = [
   "total",
   "status",
   "action",
-];
-
-const dataArray = [
-  {
-    id: 1,
-    title: "Laptop",
-    date: "2023-10-01",
-    client: "John's Electronics",
-    total: 1000,
-    status: "Pending",
-  },
-  {
-    id: 2,
-    title: "Website Development",
-    date: "2023-10-02",
-    client: "Tech Solutions Inc.",
-    total: 1500,
-    status: "Paid",
-  },
-  {
-    id: 3,
-    title: "Office Chairs",
-    date: "2023-10-03",
-    client: "Furniture Emporium",
-    total: 1200,
-    status: "Unpaid",
-  },
-  {
-    id: 4,
-    title: "Graphic Design Service",
-    date: "2023-10-04",
-    client: "Design Innovations",
-    total: 2000,
-    status: "Paid",
-  },
-  {
-    id: 5,
-    title: "Printer",
-    date: "2023-10-05",
-    client: "Print Master Co.",
-    total: 800,
-    status: "Pending",
-  },
-  {
-    id: 6,
-    title: "Mobile App Development",
-    date: "2023-10-06",
-    client: "App Creators Ltd.",
-    total: 1700,
-    status: "Paid",
-  },
-  {
-    id: 7,
-    title: "Office Desks",
-    date: "2023-10-07",
-    client: "Desk World",
-    total: 1300,
-    status: "Unpaid",
-  },
-  {
-    id: 8,
-    title: "IT Consultation",
-    date: "2023-10-08",
-    client: "Tech Experts LLC",
-    total: 1800,
-    status: "Paid",
-  },
-  {
-    id: 9,
-    title: "Coffee Machine",
-    date: "2023-10-09",
-    client: "Coffee Lovers Co.",
-    total: 900,
-    status: "Unpaid",
-  },
-  {
-    id: 10,
-    title: "SEO Services",
-    date: "2023-10-10",
-    client: "Search Boost Agency",
-    total: 1600,
-    status: "Archived",
-  },
-
-  {
-    id: 11,
-    title: "Laptop",
-    date: "2023-10-01",
-    client: "John's Electronics",
-    total: 1000,
-    status: "Pending",
-  },
-  {
-    id: 12,
-    title: "Website Development",
-    date: "2023-10-02",
-    client: "Tech Solutions Inc.",
-    total: 1500,
-    status: "Paid",
-  },
-  {
-    id: 13,
-    title: "Office Chairs",
-    date: "2023-10-03",
-    client: "Furniture Emporium",
-    total: 1200,
-    status: "Unpaid",
-  },
-  {
-    id: 14,
-    title: "Graphic Design Service",
-    date: "2023-10-04",
-    client: "Design Innovations",
-    total: 2000,
-    status: "Paid",
-  },
-  {
-    id: 15,
-    title: "Printer",
-    date: "2023-10-05",
-    client: "Print Master Co.",
-    total: 800,
-    status: "Pending",
-  },
-  {
-    id: 16,
-    title: "Mobile App Development",
-    date: "2023-10-06",
-    client: "App Creators Ltd.",
-    total: 1700,
-    status: "Paid",
-  },
-  {
-    id: 17,
-    title: "Office Desks",
-    date: "2023-10-07",
-    client: "Desk World",
-    total: 1300,
-    status: "Unpaid",
-  },
-  {
-    id: 18,
-    title: "IT Consultation",
-    date: "2023-10-08",
-    client: "Tech Experts LLC",
-    total: 1800,
-    status: "Paid",
-  },
-  {
-    id: 19,
-    title: "Coffee Machine",
-    date: "2023-10-09",
-    client: "Coffee Lovers Co.",
-    total: 900,
-    status: "Unpaid",
-  },
-  {
-    id: 21,
-    title: "SEO Services",
-    date: "2023-10-10",
-    client: "Search Boost Agency",
-    total: 1600,
-    status: "Archived",
-  },
-  {
-    id: 22,
-    title: "SEO Services",
-    date: "2023-10-10",
-    client: "Search Boost Agency",
-    total: 1600,
-    status: "Archived",
-  },
-  {
-    id: 23,
-    title: "SEO Services",
-    date: "2023-10-10",
-    client: "Search Boost Agency",
-    total: 1600,
-    status: "Archived",
-  },
-  {
-    id: 24,
-    title: "SEO Services",
-    date: "2023-10-10",
-    client: "Search Boost Agency",
-    total: 1600,
-    status: "Archived",
-  },
-  {
-    id: 25,
-    title: "SEO Services",
-    date: "2023-10-10",
-    client: "Search Boost Agency",
-    total: 1600,
-    status: "Archived",
-  },
-  {
-    id: 26,
-    title: "SEO Services",
-    date: "2023-10-10",
-    client: "Search Boost Agency",
-    total: 1600,
-    status: "Archived",
-  },
-  {
-    id: 27,
-    title: "SEO Services",
-    date: "2023-10-10",
-    client: "Search Boost Agency",
-    total: 1600,
-    status: "Archived",
-  },
-  {
-    id: 28,
-    title: "SEO Services",
-    date: "2023-10-10",
-    client: "Search Boost Agency",
-    total: 1600,
-    status: "Archived",
-  },
-  {
-    id: 29,
-    title: "SEO Services",
-    date: "2023-10-10",
-    client: "Search Boost Agency",
-    total: 1600,
-    status: "Archived",
-  },
-  {
-    id: 30,
-    title: "SEO Services",
-    date: "2023-10-10",
-    client: "Search Boost Agency",
-    total: 1600,
-    status: "Archived",
-  },
-  {
-    id: 31,
-    title: "SEO Services",
-    date: "2023-10-10",
-    client: "Search Boost Agency",
-    total: 1600,
-    status: "Archived",
-  },
-  {
-    id: 32,
-    title: "SEO Services",
-    date: "2023-10-10",
-    client: "Search Boost Agency",
-    total: 1600,
-    status: "Archived",
-  },
-  {
-    id: 33,
-    title: "SEO Services",
-    date: "2023-10-10",
-    client: "Search Boost Agency",
-    total: 1600,
-    status: "Archived",
-  },
-  {
-    id: 34,
-    title: "SEO Services",
-    date: "2023-10-10",
-    client: "Search Boost Agency",
-    total: 1600,
-    status: "Archived",
-  },
-  {
-    id: 35,
-    title: "SEO Services",
-    date: "2023-10-10",
-    client: "Search Boost Agency",
-    total: 1600,
-    status: "Archived",
-  },
-  {
-    id: 36,
-    title: "SEO Services",
-    date: "2023-10-10",
-    client: "Search Boost Agency",
-    total: 1600,
-    status: "Archived",
-  },
-  {
-    id: 37,
-    title: "SEO Services",
-    date: "2023-10-10",
-    client: "Search Boost Agency",
-    total: 1600,
-    status: "Archived",
-  },
-  {
-    id: 38,
-    title: "SEO Services",
-    date: "2023-10-10",
-    client: "Search Boost Agency",
-    total: 1600,
-    status: "Archived",
-  },
-  {
-    id: 39,
-    title: "SEO Services",
-    date: "2023-10-10",
-    client: "Search Boost Agency",
-    total: 1600,
-    status: "Archived",
-  },
-  {
-    id: 40,
-    title: "SEO Services",
-    date: "2023-10-10",
-    client: "Search Boost Agency",
-    total: 1600,
-    status: "Archived",
-  },
-  {
-    id: 41,
-    title: "SEO Services",
-    date: "2023-10-10",
-    client: "Search Boost Agency",
-    total: 1600,
-    status: "Archived",
-  },
-  {
-    id: 42,
-    title: "SEO Services",
-    date: "2023-10-10",
-    client: "Search Boost Agency",
-    total: 1600,
-    status: "Archived",
-  },
-  {
-    id: 43,
-    title: "SEO Services",
-    date: "2023-10-10",
-    client: "Search Boost Agency",
-    total: 1600,
-    status: "Archived",
-  },
-  {
-    id: 44,
-    title: "SEO Services",
-    date: "2023-10-10",
-    client: "Search Boost Agency",
-    total: 1600,
-    status: "Archived",
-  },
 ];
 
 const statusColor = [
@@ -507,7 +160,7 @@ export default function InvoicesPage() {
     setCurrentPage(1);
   }
 
-  const filteredAndPaginatedData = dataArray.filter(
+  const filteredAndPaginatedData = invoicesData.filter(
     ({ status }) =>
       !tableFilter ||
       tableFilter === "all" ||
@@ -521,7 +174,11 @@ export default function InvoicesPage() {
 
   return (
     <>
-      <PageHeader icon={<RiFileAddLine />} text={"new invoice"} />
+      <PageHeader
+        headerText={"invoices"}
+        btnIcon={<RiFileAddLine />}
+        btnText={"new invoice"}
+      />
       <div className="mb-4"></div>
       <div className="flex items-center justify-between">
         <Tabs defaultValue="account">
@@ -627,7 +284,13 @@ export default function InvoicesPage() {
                 <td className="h-px w-px whitespace-nowrap">
                   <div className="flex items-center justify-center gap-2 px-6 py-3  text-gray-600">
                     <MdOutlineDateRange />
-                    <span>{myDate.toLocaleDateString()}</span>
+                    <span>
+                      {myDate.toLocaleDateString("en-US", {
+                        month: "long",
+                        day: "numeric",
+                        year: "numeric",
+                      })}
+                    </span>
                   </div>
                 </td>
                 <td className="h-px w-px whitespace-nowrap">
@@ -639,9 +302,14 @@ export default function InvoicesPage() {
                   </div>
                 </td>
                 <td className="h-px w-px whitespace-nowrap">
-                  <div className="flex justify-center gap-2 px-6 py-3  font-bold">
-                    {/* <LiaMoneyBillWaveSolid /> */}
-                    <span className="text-sm text-green-900">{total} $</span>
+                  <div className="flex justify-center gap-1 px-6 py-3 font-bold text-sky-600">
+                    <LiaMoneyBillWaveSolid />
+                    <span className="text-sm ">
+                      {new Intl.NumberFormat("en-US", {
+                        style: "currency",
+                        currency: "usd",
+                      }).format(total)}
+                    </span>
                   </div>
                 </td>
                 <td className="h-px w-px whitespace-nowrap">
@@ -654,7 +322,7 @@ export default function InvoicesPage() {
                           return (
                             <span
                               key={statusTitle}
-                              className={`rounded-xl border-2 ${borderColor} ${bgColor} flex grow items-center  gap-2 p-1 text-center font-sans  text-sm font-semibold capitalize ${color} shadow-sm`}
+                              className={`rounded-md border px-2 ${borderColor}  ${bgColor} flex grow items-center  gap-2 p-1 text-center font-sans  text-sm font-semibold capitalize ${color} shadow-sm`}
                             >
                               {icon}
                               {status}

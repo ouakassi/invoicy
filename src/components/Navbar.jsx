@@ -59,7 +59,7 @@ export default function Navbar() {
               <DropdownMenuLabel className="flex items-center justify-between rounded-xl  text-lg  ">
                 <div></div>
                 <span className="ml-4 flex items-center gap-2  ">
-                  <RiNotification2Fill />
+                  <RiNotification2Fill className="text-sky-800" />
                   Notifications
                 </span>
 
