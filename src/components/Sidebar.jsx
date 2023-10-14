@@ -6,11 +6,8 @@ import {
   RiHome5Line,
   RiTeamLine,
   RiFileCopy2Line,
-  RiMenu4Line,
 } from "react-icons/ri";
 
-import Logo from "./Logo";
-import { Button } from "./Button";
 import {
   Tooltip,
   TooltipContent,
