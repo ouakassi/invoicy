@@ -1,19 +1,18 @@
 import { useMemo } from "react";
 
-import revenueIcon from "../../assets/imgs/overview-icons/money-bag.png";
-import invoiceIcon from "../../assets/imgs/overview-icons/invoice.png";
-import clientIcon from "../../assets/imgs/overview-icons/clients.png";
+import revenueIcon from "@/assets/imgs/overview-icons/money-bag.png";
+import invoiceIcon from "@/assets/imgs/overview-icons/invoice.png";
+import clientIcon from "@/assets/imgs/overview-icons/clients.png";
 
-import PageHeader from "../../components/PageHeader";
-import OverviewItem from "../../components/overview/OverviewItem";
-import invoicesData from "../../data/invoicesData.json";
+import PageHeader from "@/components/PageHeader";
+import OverviewItem from "@/components/overview/OverviewItem";
+import invoicesData from "@/data/invoicesData.json";
 
 export default function OverviewPage() {
-  const memoizedInvoicesTotal = useMemo(() => {
-    return invoicesData.reduce((sum, invoice) => {
-      return sum + invoice.total;
-    }, 0);
-  }, [invoicesData]);
+  const memoizedInvoicesTotal = useMemo(
+    () => invoicesData.reduce((sum, invoice) => sum + invoice.total, 0),
+    [invoicesData],
+  );
 
   const memoizedInvoicesCount = useMemo(
     () => invoicesData.length + 1,

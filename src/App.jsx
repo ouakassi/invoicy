@@ -10,6 +10,7 @@ import LoginPage from "./pages/auth/LoginPage";
 import RegisterPage from "./pages/auth/RegisterPage";
 import ForgotPasswordPage from "./pages/auth/ForgotPasswordPage";
 import InvoicesPage from "./pages/dashboard/InvoicesPage";
+import CreateInvoicePage from "./pages/dashboard/CreateInvoicePage";
 
 const authRoutes = [
   {
@@ -29,12 +30,13 @@ function App() {
         <Route path="dashboard" element={<DashboardLayout />}>
           <Route index path="overview" element={<OverviewPage />} />
           <Route path="invoices" element={<InvoicesPage />} />
+          <Route path="create-invoice" element={<CreateInvoicePage />} />
           <Route path="users" element={<>users</>} />
           <Route path="settings" element={<>settings</>} />
         </Route>
         <Route path="auth">
-          {authRoutes.map(({ path, element }, key) => {
-            return <Route key={key} path={path} element={element} />;
+          {authRoutes.map(({ path, element }) => {
+            return <Route key={path} path={path} element={element} />;
           })}
         </Route>
       </>,

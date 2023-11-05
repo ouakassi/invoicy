@@ -178,6 +178,7 @@ export default function InvoicesPage() {
         headerText={"invoices"}
         btnIcon={<RiFileAddLine />}
         btnText={"new invoice"}
+        buttonLink={"/dashboard/create-invoice"}
       />
       <div className="mb-4"></div>
       <div className="flex items-center justify-between">
@@ -256,150 +257,160 @@ export default function InvoicesPage() {
             })}
           </tr>
         </thead>
-
-        {paginatedData.map(({ id, title, date, client, total, status }, i) => {
-          const myDate = new Date(date);
-          return (
-            <tbody className="divide-y divide-gray-200 rounded-sm dark:divide-gray-700 ">
-              <motion.tr
-                initial={{ opacity: [0, 0.2, 0.5], y: -50 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4, delay: i * 0.1 }}
-                key={id}
-                className=" rounded-md bg-white font-josefin text-base transition-colors  hover:bg-gray-100 "
-              >
-                <td className="group h-px w-px cursor-pointer whitespace-nowrap py-4 ">
-                  <div className="flex items-center justify-center gap-1 rounded-sm px-1  py-1 pl-6 pr-6 text-sky-800 group-hover:underline lg:pl-3 xl:px-4">
-                    {/* <TbLayoutAlignMiddle /> */}
-                    <SiHashnode />
-                    <span>INV-{id.toString().padStart(5, "0")}</span>
-                  </div>
-                </td>
-                <td className="h-px w-72 whitespace-nowrap ">
-                  <div className="flex items-center justify-start gap-1 px-6 py-3">
-                    <TbFileInvoice />
-                    <span>{title}</span>
-                  </div>
-                </td>
-                <td className="h-px w-px whitespace-nowrap">
-                  <div className="flex items-center justify-center gap-2 px-6 py-3  text-gray-600">
-                    <MdOutlineDateRange />
-                    <span>
-                      {myDate.toLocaleDateString("en-US", {
-                        month: "long",
-                        day: "numeric",
-                        year: "numeric",
-                      })}
-                    </span>
-                  </div>
-                </td>
-                <td className="h-px w-px whitespace-nowrap">
-                  <div className="px-6 py-3">
-                    <div className="flex items-center gap-2  text-slate-500">
-                      <RiFileUserLine />
-                      <span>{client}</span>
-                    </div>
-                  </div>
-                </td>
-                <td className="h-px w-px whitespace-nowrap">
-                  <div className="flex justify-center gap-1 px-6 py-3 font-bold text-sky-600">
-                    <LiaMoneyBillWaveSolid />
-                    <span className="text-sm ">
-                      {new Intl.NumberFormat("en-US", {
-                        style: "currency",
-                        currency: "usd",
-                      }).format(total)}
-                    </span>
-                  </div>
-                </td>
-                <td className="h-px w-px whitespace-nowrap">
-                  <div className=" flex px-6 py-1.5 ">
-                    {statusColor.map(
-                      ({ statusTitle, icon, color, bgColor, borderColor }) => {
-                        if (
-                          status.toLowerCase() === statusTitle.toLowerCase()
-                        ) {
-                          return (
-                            <span
-                              key={statusTitle}
-                              className={`rounded-md border px-2 ${borderColor}  ${bgColor} flex grow items-center  gap-2 p-1 text-center font-sans  text-sm font-semibold capitalize ${color} shadow-sm`}
-                            >
-                              {icon}
-                              {status}
-                            </span>
-                          );
-                        }
-                        return null;
-                      },
-                    )}
-                  </div>
-                </td>
-                <td className="h-px w-px whitespace-nowrap text-center">
-                  <div className="flex px-2 py-1.5">
-                    <TooltipProvider delayDuration="200">
-                      <Tooltip>
-                        <TooltipTrigger className="rounded-sm p-3 transition-colors  hover:bg-slate-200 ">
-                          <FaEye />
-                        </TooltipTrigger>
-                        <TooltipContent>
-                          <p>Preview</p>
-                        </TooltipContent>
-                      </Tooltip>
-                    </TooltipProvider>
-
-                    <TooltipProvider delayDuration="200">
-                      <Tooltip>
-                        <TooltipTrigger className="rounded-sm p-3 transition-colors hover:bg-slate-200 ">
-                          <RiEditCircleLine />
-                        </TooltipTrigger>
-                        <TooltipContent>
-                          <p>Edit</p>
-                        </TooltipContent>
-                      </Tooltip>
-                    </TooltipProvider>
-                    <AlertDialog>
-                      <TooltipProvider delayDuration="200">
-                        <Tooltip>
-                          <AlertDialogTrigger>
-                            <TooltipTrigger className="gap-2 rounded-sm p-3 font-semibold text-red-600 transition-colors hover:bg-red-100  ">
-                              <RiDeleteBin3Line />
+        <tbody className="divide-y divide-gray-200 rounded-sm dark:divide-gray-700 ">
+          {paginatedData.map(
+            ({ id, title, date, client, total, status }, i) => {
+              const myDate = new Date(date);
+              return (
+                <>
+                  <motion.tr
+                    initial={{ opacity: [0, 0.2, 0.5], y: -50 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.4, delay: i * 0.1 }}
+                    key={id}
+                    className=" rounded-md bg-white font-josefin text-base transition-colors  hover:bg-gray-100 "
+                  >
+                    <td className="group h-px w-px cursor-pointer whitespace-nowrap py-4 ">
+                      <div className="flex items-center justify-center gap-1 rounded-sm px-1  py-1 pl-6 pr-6 text-sky-800 group-hover:underline lg:pl-3 xl:px-4">
+                        {/* <TbLayoutAlignMiddle /> */}
+                        <SiHashnode />
+                        <span>INV-{id.toString().padStart(5, "0")}</span>
+                      </div>
+                    </td>
+                    <td className="h-px w-72 whitespace-nowrap ">
+                      <div className="flex items-center justify-start gap-1 px-6 py-3">
+                        <TbFileInvoice />
+                        <span>{title}</span>
+                      </div>
+                    </td>
+                    <td className="h-px w-px whitespace-nowrap">
+                      <div className="flex items-center justify-center gap-2 px-6 py-3  text-gray-600">
+                        <MdOutlineDateRange />
+                        <span>
+                          {myDate.toLocaleDateString("en-US", {
+                            month: "long",
+                            day: "numeric",
+                            year: "numeric",
+                          })}
+                        </span>
+                      </div>
+                    </td>
+                    <td className="h-px w-px whitespace-nowrap">
+                      <div className="px-6 py-3">
+                        <div className="flex items-center gap-2  text-slate-500">
+                          <RiFileUserLine />
+                          <span>{client}</span>
+                        </div>
+                      </div>
+                    </td>
+                    <td className="h-px w-px whitespace-nowrap">
+                      <div className="flex justify-center gap-1 px-6 py-3 font-bold text-sky-600">
+                        <LiaMoneyBillWaveSolid />
+                        <span className="text-sm ">
+                          {new Intl.NumberFormat("en-US", {
+                            style: "currency",
+                            currency: "usd",
+                          }).format(total)}
+                        </span>
+                      </div>
+                    </td>
+                    <td className="h-px w-px whitespace-nowrap">
+                      <div className=" flex px-6 py-1.5 ">
+                        {statusColor.map(
+                          ({
+                            statusTitle,
+                            icon,
+                            color,
+                            bgColor,
+                            borderColor,
+                          }) => {
+                            if (
+                              status.toLowerCase() === statusTitle.toLowerCase()
+                            ) {
+                              return (
+                                <span
+                                  key={statusTitle}
+                                  className={`rounded-md border px-2 ${borderColor}  ${bgColor} flex grow items-center  gap-2 p-1 text-center font-sans  text-sm font-semibold capitalize ${color} shadow-sm`}
+                                >
+                                  {icon}
+                                  {status}
+                                </span>
+                              );
+                            }
+                            return null;
+                          },
+                        )}
+                      </div>
+                    </td>
+                    <td className="h-px w-px whitespace-nowrap text-center">
+                      <div className="flex px-2 py-1.5">
+                        <TooltipProvider delayDuration="200">
+                          <Tooltip>
+                            <TooltipTrigger className="rounded-sm p-3 transition-colors  hover:bg-slate-200 ">
+                              <FaEye />
                             </TooltipTrigger>
-                          </AlertDialogTrigger>
-                          <TooltipContent className="bg-red-600 text-white">
-                            <p>Delete</p>
-                          </TooltipContent>
-                        </Tooltip>
-                      </TooltipProvider>
-                      <AlertDialogContent>
-                        <AlertDialogHeader>
-                          <AlertDialogTitle className="flex items-center gap-2 ">
-                            <BsExclamationCircle className="text-2xl text-red-800" />
-                            Are you completely certain about deleting invoice?
-                          </AlertDialogTitle>
-                          <AlertDialogDescription>
-                            Please note that this action is irreversible. It
-                            will permanently remove the invoice row from your
-                            records.
-                          </AlertDialogDescription>
-                        </AlertDialogHeader>
-                        <AlertDialogFooter>
-                          <AlertDialogCancel
-                            onClick={() => setIsEditDialogOpen(false)}
-                          >
-                            Cancel
-                          </AlertDialogCancel>
-                          <AlertDialogAction className="bg-red-700 hover:bg-red-600">
-                            Delete
-                          </AlertDialogAction>
-                        </AlertDialogFooter>
-                      </AlertDialogContent>
-                    </AlertDialog>
-                  </div>
-                </td>
-              </motion.tr>
-            </tbody>
-          );
-        })}
+                            <TooltipContent>
+                              <p>Preview</p>
+                            </TooltipContent>
+                          </Tooltip>
+                        </TooltipProvider>
+
+                        <TooltipProvider delayDuration="200">
+                          <Tooltip>
+                            <TooltipTrigger className="rounded-sm p-3 transition-colors hover:bg-slate-200 ">
+                              <RiEditCircleLine />
+                            </TooltipTrigger>
+                            <TooltipContent>
+                              <p>Edit</p>
+                            </TooltipContent>
+                          </Tooltip>
+                        </TooltipProvider>
+                        <AlertDialog>
+                          <TooltipProvider delayDuration="200">
+                            <Tooltip>
+                              <AlertDialogTrigger>
+                                <TooltipTrigger className="gap-2 rounded-sm p-3 font-semibold text-red-600 transition-colors hover:bg-red-100  ">
+                                  <RiDeleteBin3Line />
+                                </TooltipTrigger>
+                              </AlertDialogTrigger>
+                              <TooltipContent className="bg-red-600 text-white">
+                                <p>Delete</p>
+                              </TooltipContent>
+                            </Tooltip>
+                          </TooltipProvider>
+                          <AlertDialogContent>
+                            <AlertDialogHeader>
+                              <AlertDialogTitle className="flex items-center gap-2 ">
+                                <BsExclamationCircle className="text-2xl text-red-800" />
+                                Are you completely certain about deleting
+                                invoice?
+                              </AlertDialogTitle>
+                              <AlertDialogDescription>
+                                Please note that this action is irreversible. It
+                                will permanently remove the invoice row from
+                                your records.
+                              </AlertDialogDescription>
+                            </AlertDialogHeader>
+                            <AlertDialogFooter>
+                              <AlertDialogCancel
+                                onClick={() => setIsEditDialogOpen(false)}
+                              >
+                                Cancel
+                              </AlertDialogCancel>
+                              <AlertDialogAction className="bg-red-700 hover:bg-red-600">
+                                Delete
+                              </AlertDialogAction>
+                            </AlertDialogFooter>
+                          </AlertDialogContent>
+                        </AlertDialog>
+                      </div>
+                    </td>
+                  </motion.tr>
+                </>
+              );
+            },
+          )}
+        </tbody>
       </table>
     </>
   );

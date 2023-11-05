@@ -11,10 +11,10 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "../components/Dropdown";
+} from "@/components/Dropdown";
 
-import { Avatar, AvatarFallback, AvatarImage } from "../components/Avatar";
-import USER_IMG from "../assets/imgs/user.png";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/Avatar";
+import USER_IMG from "@/assets/imgs/user.png";
 import NotificationPanel from "./notifications/NotificationPanel";
 
 const userDropdownItems = [

@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import Logo from "../../components/Logo";
+import Logo from "@/components/Logo";
 
 import { Link } from "react-router-dom";
 
@@ -7,7 +7,7 @@ import { CiMail, CiLock } from "react-icons/ci";
 import { BsGithub, BsGoogle, BsFacebook } from "react-icons/bs";
 import { BiLogInCircle } from "react-icons/bi";
 
-import InputContainer from "../../components/form/InputContainer";
+import InputContainer from "@/components/form/InputContainer";
 
 export default function LoginPage() {
   useEffect(() => {});

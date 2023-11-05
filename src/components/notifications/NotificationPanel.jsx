@@ -41,7 +41,7 @@ const notificationsList = [
 
 export default function NotificationPanel() {
   return (
-    <DropdownMenu>
+    <DropdownMenu modal={false}>
       <DropdownMenuTrigger className="rounded-sm p-2 text-xl outline-none hover:bg-sky-100">
         <RiNotification3Line />
         <span className="absolute top-1 rounded-full bg-sky-800 px-[8px] py-[3px] text-xs font-bold text-white">
@@ -54,24 +54,24 @@ export default function NotificationPanel() {
           className="min-w-[22rem] px-2 py-2 pb-8 "
           sideOffset={10}
         >
-          <DropdownMenuLabel className="flex items-center justify-between rounded-xl  text-lg  ">
-            {/* <div></div> */}
-            <span className="ml-4 flex items-center gap-2  ">
-              {/* <RiNotification2Fill className="text-sky-800" /> */}
-              Notifications
-            </span>
+          <DropdownMenuLabel className="flex items-center justify-between rounded-xl text-lg  ">
+            <div className="ml-4 flex items-center gap-2  ">
+              Notifications{" "}
+              <span className="rounded-sm bg-sky-800 px-2 text-white ">8</span>
+            </div>
 
             <Button
-              className="gap-1 text-xl text-red-600 hover:bg-red-50 hover:text-red-600 "
+              className=" capitalize text-red-500 hover:bg-red-500 hover:text-red-50 hover:underline "
               variant="ghost"
             >
-              <RiDeleteBin5Line />
+              Mark all as read
             </Button>
           </DropdownMenuLabel>
           <DropdownMenuSeparator className="mb-4" />
 
-          {notificationsList.map(({ msgType, msgText, date }) => (
+          {notificationsList.map(({ msgType, msgText, date }, i) => (
             <NotificationMsg
+              key={i}
               msgType={msgType}
               msgText={msgText}
               msgDate={date}
